@@ -7,17 +7,18 @@
 </head>
 
 <body>
-  <h1>What The..... Cinemma</h1>
+  <h1>What The..... Cinema</h1>
 
   <div>
     <form id="user-input-form">
-      <p>Whats your age?></p>
+      <p>Whats your age?</p>
       <label><input type="radio" name="user-age" value=1 checked>Children(younger than 13)</label><br>
       <label><input type="radio" name="user-age" value=2>Adult</label><br>
       <label><input type="radio" name="user-age" value=3>Senior(older than 60)</label><br>
     </form>
     <br>
     <form id="movies-form">
+      <p>Movies:</p>
       <select id="movie-id">
         <option>Harold's Feet</option>
         <option>Salt vs. Pepper</option>
@@ -27,6 +28,7 @@
     </form>
     <br>
     <form id="show-time-form">
+      <p>Show Times:</p>
       <select id="show-time-id">
         <option>7am</option>
         <option>3pm</option>
@@ -36,7 +38,18 @@
     <br>
     <br>
     <button type="submit">Submit Form</button>
-
   </div>
+
+  <h2>Tickets:</h2>
+  <div id="tickets">
+  </div>
+
+  <div id="ticket-details" class="hidden">
+    <p>Ticket Type: <span class="age"></span></p>
+    <p>Movie: <span class="movie"></span></p>
+    <p>Show Time: <span class="time"></span></p>
+    <button class="delete" type="button">Remove From Cart</button>
+  </div>
+
 </body>
 </html>
