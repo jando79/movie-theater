@@ -6,12 +6,17 @@ function TicketBooth() {
 
 TicketBooth.prototype.addTicket = function(ticket) {
   ticket.id = this.assign();
+  ticket.price = this.ticketPrice();
   this.tickets[ticket.id] = ticket;
 };
 
 TicketBooth.prototype.assignId = function() {
   this.current += 1;
   return this.currentId;
+}
+
+TicketBooth.prototype.ticketPrice = fucntion() {
+   
 }
 
 TicketBooth.prototype.findTicket = function(id) {
@@ -36,7 +41,20 @@ function Ticket(age, movie, time) {
   this.time = time;
 };
 
+//User Interface Logic
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const age = document.querySelector("input[name='user-age']:checked").value;
+  const movie = document.getElementById("movie-id").value;
+  const time = document.getElementById("time-id").value;
+  let newTicket = new Ticket(age, movie, time);
 
 
+}
+
+
+window.addEventListener("load", function () {
+  this.document.querySelector("form#show-time-form").addEventListener("submit", handleFormSubmission);
+})
 
 
