@@ -105,11 +105,27 @@ function handleFormSubmission(event) {
   listTickets(ticketBooth);
 };
 
+function displayTicketDetails(event) {
+  const ticket = ticketBooth.findTicket(event.target.id);
+  document.querySelector(".movie").innerText = ticket.movie;
+  document.querySelector(".time").innerText = ticket.time;
+  document.querySelector(".age").innerText = ticket.age;
+  document.querySelector(".price").innerText = ticket.price;
+  document.querySelector("div#ticket-details").removeAttribute("class");
+}
+
+function handleDelete(event) {
+  ticketBooth.deleteTicket(event.target.id);
+  document.querySelector("button.delete").removeAttribute("id");
+  document.querySelector("div#ticket-details").setAttribute("class", "hidden");
+  listTickets(ticketBooth);
+};
 
 
-
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
   document.querySelector("form#time-form").addEventListener("submit", handleFormSubmission);
+  document.querySelector("div#ticket-stub").addEventListener("click", displayTicketDetails);
+  document.querySelector("button.delete").addEventListener("click", handleDelete);
 });
 
 
